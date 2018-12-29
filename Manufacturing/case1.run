@@ -1,0 +1,15 @@
+reset;
+
+option presolve 0;
+
+option solver cplex;
+
+option cplex_options 'sensitivity';
+
+model case1_ILP.mod;
+
+data case1.dat;
+
+solve;
+
+display   _objname,   _obj,   _varname,   _var, _var.rc, _var.down, _var.up, _var.current, _conname, _con, _con.slack, _con.current,_con.down, _con.up > case_output.txt;
